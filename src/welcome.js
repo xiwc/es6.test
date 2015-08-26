@@ -1,86 +1,100 @@
+import Child from "comp/child";
+import {transient, inject} from 'aurelia-framework';
+
+@transient()
+@inject(Child)
 export class Welcome {
+
+    constructor(child){
+        console.log('Welcome');
+        this.child = child;
+    }
 
     execHandler() {
 
-        {
-            let a = 10;
-            var b = 1;
-        }
-        // console.log(a);
-        console.log(b);
+        console.log('welcome execHandler');
 
-        for (let i = 0; i < 10; i++) {
+        this.child.exec();
 
-        }
+        // {
+        //     let a = 10;
+        //     var b = 1;
+        // }
+        // // console.log(a);
+        // console.log(b);
 
-        console.log(i);
+        // for (let i = 0; i < 10; i++) {
 
-        var a = [];
-        for (var i = 0; i < 10; i++) {
-            a[i] = function() {
-                console.log(i);
-            };
-        }
-        a[6](); // 10
+        // }
 
-        var a = [];
-        for (let i = 0; i < 10; i++) {
-            a[i] = function() {
-                console.log(i);
-            };
-        }
-        a[6](); // 6
+        // console.log(i);
 
-        var tmp = 123;
+        // var a = [];
+        // for (var i = 0; i < 10; i++) {
+        //     a[i] = function() {
+        //         console.log(i);
+        //     };
+        // }
+        // a[6](); // 10
 
-        if (true) {
-            tmp = 'abc'; // ReferenceError
-            let tmp;
-        }
+        // var a = [];
+        // for (let i = 0; i < 10; i++) {
+        //     a[i] = function() {
+        //         console.log(i);
+        //     };
+        // }
+        // a[6](); // 6
 
-        let foo = 'outer';
+        // var tmp = 123;
 
-        function bar(func = x => foo) {
-            let foo = 'inner';
-            console.log(func()); // outer
-        }
+        // if (true) {
+        //     tmp = 'abc'; // ReferenceError
+        //     let tmp;
+        // }
 
-        bar();
+        // let foo = 'outer';
 
-        if (true) {
-            const MAX = 5;
-        }
+        // function bar(func = x => foo) {
+        //     let foo = 'inner';
+        //     console.log(func()); // outer
+        // }
 
-        const foo1 = Object.freeze({});
+        // bar();
 
-        var [a, b, c] = [1, 2, 3];
+        // if (true) {
+        //     const MAX = 5;
+        // }
 
-        // let [foo, [[bar], baz]] = [1, [[2], 3]];
+        // const foo1 = Object.freeze({});
+
+        // var [a, b, c] = [1, 2, 3];
+
+        // // let [foo, [[bar], baz]] = [1, [[2], 3]];
 
 
-        let [, , third] = ["foo", "bar", "baz"];
+        // let [, , third] = ["foo", "bar", "baz"];
 
-        let [x, , y] = [1, 2, 3];
+        // let [x, , y] = [1, 2, 3];
 
-        let [head, ...tail] = [1, 2, 3, 4];
+        // let [head, ...tail] = [1, 2, 3, 4];
 
-        // var { foo, bar } = { foo: "aaa", bar: "bbb" };
+        // // var { foo, bar } = { foo: "aaa", bar: "bbb" };
 
-        // const [a, b, c, d, e] = 'hello';
+        // // const [a, b, c, d, e] = 'hello';
 
-        var map = new Map();
-        map.set('first', 'hello');
-        map.set('second', 'world');
+        // var map = new Map();
+        // map.set('first', 'hello');
+        // map.set('second', 'world');
 
-        for (let [key, value] of map) {
-            console.log(key + " is " + value);
-        }
+        // for (let [key, value] of map) {
+        //     console.log(key + " is " + value);
+        // }
 
-        $("#result").append(`
-          There are <b>${basket.count}</b> items
-           in your basket, <em>${basket.onSale}</em>
-          are on sale!
-        `);
+        // $("#result").append(`
+        //   There are <b>${basket.count}</b> items
+        //    in your basket, <em>${basket.onSale}</em>
+        //   are on sale!
+        // `);
     }
 
 }
